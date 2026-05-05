@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-whqxjbj(k(x2!2i77!a42k80#me$z&mmf0unc%0)_yue0exkt_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['iron-shop.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
