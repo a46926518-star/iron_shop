@@ -1,0 +1,49 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="aiofiles" />
+          <option value="aiogram" />
+          <option value="aiohappyeyeballs" />
+          <option value="aiohttp" />
+          <option value="aiosignal" />
+          <option value="annotated-types" />
+          <option value="attrs" />
+          <option value="django-admin-list-filter-dropdown" />
+          <option value="django-cors-headers" />
+          <option value="django-cors-middleware" />
+          <option value="django-filter" />
+          <option value="django-rest-framework" />
+          <option value="djangorestframework_simplejwt" />
+          <option value="drf-spectacular" />
+          <option value="drf-yasg" />
+          <option value="frozenlist" />
+          <option value="gunicorn" />
+          <option value="inflection" />
+          <option value="jsonschema" />
+          <option value="jsonschema-specifications" />
+          <option value="magic-filter" />
+          <option value="multidict" />
+          <option value="packaging" />
+          <option value="pillow" />
+          <option value="propcache" />
+          <option value="pydantic" />
+          <option value="pydantic_core" />
+          <option value="PyJWT" />
+          <option value="python-dotenv" />
+          <option value="pytz" />
+          <option value="PyYAML" />
+          <option value="referencing" />
+          <option value="rpds-py" />
+          <option value="typing-inspection" />
+          <option value="typing_extensions" />
+          <option value="uritemplate" />
+          <option value="whitenoise" />
+          <option value="yarl" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
