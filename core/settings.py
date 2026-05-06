@@ -78,6 +78,9 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
