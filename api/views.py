@@ -11,12 +11,16 @@ class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all().order_by('-id')
     serializer_class = ProductSerializer
     permission_classes = [permissions.AllowAny]
-
-
-class ProductViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated]
-    queryset = Product.objects.all()
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all().order_by('-id')
     serializer_class = ProductSerializer
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = [permissions.AllowAny]
+        else:
+            permission_classes = [permissions.IsAdminUser]
+        return [permission() for permission in permission_classes]
 
 class OrderListView(generics.ListAPIView):
     queryset = Order.objects.all()
