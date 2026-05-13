@@ -11,7 +11,7 @@ def env_list(name, default=""):
     return [i.strip() for i in os.getenv(name, default).split(",") if i.strip()]
 
 SECRET_KEY = os.getenv("SECRET_KEY", "change-me")
-DEBUG = env_bool("DEBUG", "True")
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = env_list(
     "ALLOWED_HOSTS",
@@ -130,5 +130,5 @@ LANGUAGE_CODE = "uz-uz"
 TIME_ZONE = "Asia/Tashkent"
 USE_I18N = True
 USE_TZ = True
-DEBUG=True
-
+if 'RENDER' in os.environ:
+    DEBUG = True
