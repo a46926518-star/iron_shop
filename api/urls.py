@@ -1,23 +1,27 @@
-from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from api import views as api_views
-from django.views.generic import RedirectView
+from rest_framework.routers import DefaultRouter
+from . import views
+
+router = DefaultRouter()
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'products', views.ProductViewSet)
+router.register(r'masters', views.MasterViewSet)
+router.register(r'cart', views.CartViewSet, basename='cart')
+router.register(r'cart-items', views.CartItemViewSet)
+router.register(r'orders', views.OrderViewSet)
+router.register(r'order-items', views.OrderItemViewSet)
+router.register(r'leads', views.LeadViewSet)
+router.register(r'wishlist', views.WishlistViewSet)
+router.register(r'payments', views.PaymentViewSet, basename='payment')
+router.register(r'last-sold', views.LastSoldViewSet, basename='last-sold')
+router.register(r'top-products', views.TopProductsViewSet, basename='top-products')
+router.register(r'feedback', views.FeedbackViewSet)
+router.register(r'profiles', views.ProfileViewSet)
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/api/docs/', permanent=True)),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-
-    path('api/', include('api.urls')),
-    path('kanban/', api_views.kanban_page, name='kanban-board'),
-
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('', include(router.urls)),
+    path('register/', views.RegisterView.as_view(), name='register'),
+    path('login/', views.LoginView.as_view(), name='login'),
+    path('create-order/', views.CreateOrderView.as_view(), name='create-order'),
+    path('webhook/telegram/', views.telegram_webhook, name='telegram-webhook'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
